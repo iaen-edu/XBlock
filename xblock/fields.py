@@ -279,6 +279,7 @@ class Field(object):
         """
         Return whether this field should be saved when xblock.save() is called
         """
+        # pylint: disable=W0212
         if self not in xblock._dirty_fields:
             return False
 
@@ -406,6 +407,7 @@ class Field(object):
         """
         Return whether this field has a non-default value on the supplied xblock
         """
+        # pylint: disable=W0212
         return self._is_dirty(xblock) or xblock._field_data.has(xblock, self.name)
 
     def __hash__(self):
