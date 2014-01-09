@@ -1,168 +1,167 @@
-===============
-Getting Started
-===============
+=========
+Empezando
+=========
 
-Creating a new XBlock means creating an installable Python kit with a class
-derived from :class:`.XBlock`.  That sounds complicated, but it isn't.
+Crear un nuevo XBlocks significa crear un kit de Python instalable con clases derivadas
+de :class:`.XBlock`.  Suena complicado, pero no lo es.
 
 
 Prerequisites
 -------------
 
-You'll need some software installed in order to work with XBlock:
+Necesitarás algo de software instalado para trabajar con XBlock:
 
 Python 2.7
 
-    Chances are good that you already have Python 2.7 installed.  If you need
-    to install it, you can get a kit from `python.org`__.   Do not install the
-    highest version you find.  Python 3.x will not work.  You want Python 2.7.
+    Es muy probable que ya tengas instalado Python 2.7.  Si necesitas
+    instalarlo, puedes bajarlo de `python.org`__.   No instalar
+    la más alta versión que encuentres.  Python 3.x no funcionará.  Tu necesitas Python 2.7.
 
 .. __: http://python.org/download/
 
 Pip
 
-    Python's package manager is called pip, with its own `installation
-    instructions`__.
+    El manejador de paquetes de Python se llama pip, con sus propias `instrucciones de instalación`__.
 
 .. __: http://www.pip-installer.org/en/latest/installing.html
 
 Git
 
-    Git manages code repositories.  Github has a good `introduction to setting
-    up git`__ if you need one.
+    Git maneja el código del repositorio.  Github tiene una buena `introducción de cómo
+    configurar git`__ si lo necesitas.
 
 .. __: https://help.github.com/articles/set-up-git
 
 
 
-Get the XBlock repository
--------------------------
+Bajar el repositorio de XBlock
+------------------------------
 
 .. highlight: console
 
-The XBlock code is on Github.  Get the code by cloning the XBlock repo::
+El código de XBlock está en Github.  Baja el código clonando el report de XBlock::
 
     $ git clone https://github.com/edx/XBlock.git
 
-This will create the XBlock directory in your current directory.
+Esto creará el directorio de XBlock en tu directorio actual.
 
-In the XBlock directory, install its prerequisite Python packages::
+En el directorio de XBlock, instala sus prerrequisitos de paquetes Python::
 
     $ pip install -r requirements.txt
 
 
-Create a new XBlock
--------------------
+Creando un nuevo XBlock
+-----------------------
 
 .. highlight: console
 
-The simplest way to get started on a new XBlock is to use the
-script/startnew.py script in the XBlock repo.  Make a directory for your
-development work, outside the XBlock directory, let's call it ``~/edxwork``,
-and run the startnew.py script from there::
+La manera más simple de empezar en un nuevo XBlock es usar el script
+script/startnew.py en el repo de XBlock.  Crea un directorio de tu
+ambiente de trabajo, fuera del directorio XBlock, vamos a llamarlo ``~/edxwork``,
+y corre el script startnew.py desde ahí::
 
     $ cd ~
     $ mkdir edxwork
     $ cd edxwork
-    $ /path/to/XBlock/script/startnew.py
+    $ /directorio/de/XBlock/script/startnew.py
 
-The script will need two pieces of information, both related to the name of
-your XBlock:  a short name that can be used for directory names, and a Python
-class name.  You might choose "myxblock" for the short name and "MyXBlock" for
-the class name.  We'll use those names in the rest of these instructions.  Your
-files will be named using the actual name you gave.
+Este script necesita dos piezas de información, ambas relacionadas al nombre de
+tu XBlock:  un nombre corto que será usado para el nombre del directorio, y un Python
+nombre de clase.  Puedes elegir "mixblock" para el nombre corto y "MiXBlock" para
+el nombre de la clase. Usaremos estos nobmres para el resto de las instrucciones. Tus
+archivos serán llamados usando el nombre que le diste.
 
-When the script is done, you'll have a myxblock directory with a complete
-working XBlock.  Of course, it's just the boilerplate for your XBlock, now you
-have to start writing your code.
+Cuando el script termina, tendrás un directorio mixblock con un completo ambiente
+de trabajo de XBlock.  Claro, sólo es un texto modelo de tu XBlock, ahora puedes
+empezar a escribir tu código.
 
 .. highlight: python
 
-Most of your work will be in the myxblock/myxblock/myxblock.py file, which
-contains the MyXBlock class.  There are "TO-DO" comments in the file indicating
-where you should make changes::
+La mayoría de ustedes trabajará en el archivo mixblock/mixblock/mixblock.py, que
+contiene la clase MiXBlock.  Hay comentarios "TO-DO" en el archivo indicando
+donde debes hacer cambios::
 
     # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         etc...
 
 
-Write your XBlock
+Escribe tu XBlock
 -----------------
 
-Now comes the hard part!  You'll modify myxblock.py and the other files in the
-generated XBlock to make it do whatever it is you want your XBlock to do.
+Ahora viene la parte fuerte!  Tu modificarás mixblock.py y otros archivos
+en tu XBlock generado para hacer lo que sea que tu quieres que haga.
 
-Define your fields
-..................
+Define tus campos
+.................
 
-The first step is to define your fields.  These are declarations of the data
-your XBlock will store.  XBlock fields have a rich scoping mechanism that lets
-you associate data with particular blocks and users.  See :ref:`guide_fields`
+El primer paso es definir tus campos.  Estas son declaraciones de los datos que
+tu XBlock guardará.  Los campos de XBlock tienen un muy buen mecanismo de alcance que permite
+asociar datos con bloques y usuarios particulares.  Ver :ref:`guide_fields`
 for more details.
 
 
-Define your view
-................
+Define tu vista
+...............
 
-The view is a function that creates the HTML to display your block in a course.
-It may be a simple rendering of your data, or you may have complex logic to
-determine what to show.
+La vista es una función que crea el HTML para mostrar tu bloque en un curso.
+Puede ser fácil renderizar tus datos, o puedes tener una lógica compleja para
+determinar que mostrar.
 
-Many XBlocks will need only a single view, called "student_view".
+Muchos XBlocks necesitarán sólo una vista, llamada "student_view".
 
-Your view includes not only HTML, but also whatever Javascript and CSS are
-needed to support the HTML.
-
-
-Define your handlers
-....................
-
-If your XBlock is interactive, you will likely need to receive events from the
-Javascript.  A handler is a function bound to a URL.  You can use the URL in
-your Javascript to communicate back to the server.
-
-You can define as many handlers as you need, and name them whatever you like.
+Tu vista no sólo incluye HTML, también cualquier Javascript y CSS son
+necesarios para soportar el HTML.
 
 
-Write tests
-...........
+Define tus manejadores
+......................
+
+Si tu XBlock es interactivo, te gustará recibir eventos desde tu
+Javascript.  Un manejador es un función ligada a un URL.  Tu puedes usar el URL en
+tu Javascript para regresar la comunicación al servidor.
+
+Puedes definir tantos manejadores como necesites, y llamarlos como desees.
+
+
+Esribe tus preubas
+..................
 
 TBD
 
 
-Test your XBlock
+Prueba tu XBlock
 ----------------
 
 .. highlight: console
 
-It's important to thoroughly test your XBlock to be sure that it does what you
-want and that it works properly in the environments you need.
+Es importante que pruebes detenidamente tu XBlock para asegurar que hace lo que quieres
+y que trabaje adecuadamente en el ambiente que necesitas.
 
-To run your XBlock another application, you'll install it.  Using pip, you can
-install your XBlock so that your working tree (the code you are editing) is the
-installed version.  The makes it easy to change the code and see the changes
-running without a cumbersome edit-install-run cycle.
+Para corre tu XBlock en otra aplicación, necesitarás instalarlo.  Usando pip, puedes
+instalar tu XBlock así tu árbol de trabajo (el código que estás editando) es la versión
+instalada.  Lo hace fácil cambiar el código y ver los cambios
+corriendo sin un incómodo ciclo de editar-instalar-ejecutar.
 
-Use pip to install your block::
+Usar pip para instalar tu block::
 
     $ cd ~/edxwork
     $ pip install -e myxblock
 
-Testing with the workbench
+Probando en el ambiente de trabajo
+..................................
+
+El ambiente de prueba más simple es el XBlock workbench.  Una vez instalado
+tu XBlock, el workbench mostrará todos los escenarios que has definido en
+tu método `workbench_scenarios`.
+
+Probando con el LMS de edX
 ..........................
 
-The simplest test environment is the XBlock workbench.  Once you've installed
-your XBlock, the workbench will display whatever scenarios you've defined in
-your `workbench_scenarios` method.
-
-Testing with the edX LMS
-........................
-
-We're still working on the details of how to test your block in the edX LMS.
+Aún estamos trabajando en los detalles de cómo probar tu bloque en el LMS de edX.
 
 
-Deploying your XBlock
----------------------
+Desplegar tu Block
+------------------
 
-Details to come.
+Detalles por venir.
