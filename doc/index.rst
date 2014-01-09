@@ -1,32 +1,32 @@
-======================================
-XBlock: Open edX courseware components
-======================================
+=====================================
+XBlock: Open edX componente de cursos
+=====================================
 
 .. note::
 
-    This is still preliminary documentation.  Please get in touch with us
-    if you have any questions or concerns. Do not make any plans based on this
-    document without talking to us first.
+    Esta es aun documentación preliminar. Por favor mantente en contacto con
+    nosotros si tienes algunas preguntas o preocupaciones. No hagas ningun plan basado
+    en esta documentación sin hablar primero con nosotros.
 
-    edX is in the process of implementing XBlock support, and that effort
-    could produce changes to these documents.
+    edX está en proceso de implementación de soportar XBlock y ese
+    esfuerzo puede producir cambios a este documento.
 
-To create rich engaging online courses, course authors must be able to combine
-components from a variety of sources.  XBlock is edX's component architecture
-that makes this possible.  Courses are built hierarchically of pieces called
-**XBlocks**. Like an HTML ``<div>``, XBlocks can represent pieces as small as a
-paragraph of text, a video, or a multiple-choice input field, or as large as a
-section, a chapter, or an entire course.
+Para crear ricos i atractivos cursos en línea, los creadores de cursos deben combinar
+componentes desde una variedad de fuentes.  XBlock es un componente de la arquitectura de edX
+que hace esto posible.  Los cursos son piezas jerárquicamente creadas llamadas
+**XBlocks**. Como un HTML ``<div>``, XBlocks puede representar piezas como un
+párrafo de texto, un video, o un campo de selección múltiple, o una larga
+sección, un capítulo, o un curso completo.
 
-XBlocks are not limited to just delivering courses.  A complete educational
-ecosystem will make use of a number of web applications, all of which will need
-access to course content and data.  XBlocks provide the structure and APIs
-needed to build components for use in all of these applications.
+XBlocks no está sólo limitado para entregar cursos.  Un completo ecosistema
+educacional que hace uso de un número de aplicaciones web, todas necesitarán
+acceder a datos y contenido del curso.  XBlocks provee la estructura y API
+necesaria para crear componentes par usar en todas estas aplicaciones.
 
-Getting Started
----------------
+Empezando
+---------
 
-How to begin writing an XBlock.
+Cómo empezar a escribir XBlock.
 
 .. toctree::
     :maxdepth: 2
@@ -36,7 +36,7 @@ How to begin writing an XBlock.
 User's Guide
 ------------
 
-The concepts of XBlock, in depth.
+El concepto de XBlock, a fondo.
 
 .. toctree::
     :maxdepth: 2
@@ -49,7 +49,7 @@ The concepts of XBlock, in depth.
 API
 ---
 
-Details of the XBlock APIs.
+Detalles de la API de XBlock
 
 .. toctree::
     :maxdepth: 2
@@ -64,7 +64,7 @@ Details of the XBlock APIs.
 Project Info
 ------------
 
-Other information about the project.
+Otra información sobre el proyecto
 
 .. toctree::
     :maxdepth: 1
